@@ -4,7 +4,7 @@ function initialiseQuiz(){
 
 function pullQuestion(){
 //Pulls a random question from the array and displays it on screen. Stores Question ID so it doesn't pull
-//the same one again. Listens for user input and calls compareAnswer.
+//the same one again. Listens for user input and calls compareAnswer. Increments question-number span.
 }
 
 function compareAnswer(){
@@ -35,3 +35,32 @@ function restartQuiz(){
 //Resets the correct and incorrect answer counts to 0 and clears the list of Question IDs already completed so they 
 //can be pulled again
 }
+
+/* --- Array of Quiz questions will look something like this: ---
+
+let questions = [
+    {
+    Id: 1,
+    question: "Text of the first question",
+    answer: "Correct answer of the first question",
+    options: [
+        "option 1",
+        "option 2",
+        "option 3",
+        "option 4"
+    ]
+  },
+    {
+    Id: 2,
+    question: "Text of the second question",
+    answer: "Correct answer of the seconf question",
+    options: [
+        "option 1",
+        "option 2",
+        "option 3",
+        "option 4"
+    ]
+  },
+
+  etc....
+*/
