@@ -1,10 +1,32 @@
+//Wait for the DOM to finish loading before running Javascript
+document.addEventListener("DOMContentLoaded", function(){
+	
+	let buttons = document.getElementsByTagName("button");
+	for(let button of buttons){
+    	button.addEventListener("click", function(){
+    		if (this.getAttribute("class") === "restart"){
+				restartQuiz();
+			}else if (this.getAttribute("class") === "nextbtn"){
+				pullQuestion();
+			}else if(this.getAttribute("class") === "quit"){
+				abortQuiz();
+			}else {
+				alert("Unrecognised button clicked!");
+				throw "Unrecognised button clicked!, Aborting!";
+			}
+    	})
+  	}
+})
+
 function initialiseQuiz(){
 //Calls pullQuesiton
 }
 
 function pullQuestion(){
-//Pulls a random question from the array and displays it on screen. Stores Question ID so it doesn't pull
-//the same one again. Listens for user input and calls compareAnswer. Increments question-number span.
+	//Pulls a random question from the array and displays it on screen. Stores Question ID so it doesn't pull
+	//the same one again. Listens for user input and calls compareAnswer. Increments question-number span.
+
+	console.log("Next button clicked, pullQuestion() called!")
 }
 
 function compareAnswer(){
@@ -28,12 +50,16 @@ function passQuiz(){
 }
 
 function abortQuiz(){
-//Cancels the quiz and returns to the start-box screen. Possibly acknowledges failure if called by incrementIncorrectCount
+	//Cancels the quiz and returns to the start-box screen. Possibly acknowledges failure if called by incrementIncorrectCount
+
+	console.log("Quit button clicked, abortQuiz() called!")
 }
 
 function restartQuiz(){
-//Resets the correct and incorrect answer counts to 0 and clears the list of Question IDs already completed so they 
-//can be pulled again
+	//Resets the correct and incorrect answer counts to 0 and clears the list of Question IDs already completed so they 
+	//can be pulled again
+	
+	console.log("Start/Restart button clicked, restartQuiz() called!");
 }
 
 /* --- Array of Quiz questions will look something like this: ---

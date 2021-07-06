@@ -31,7 +31,6 @@ button{
     margin-left: auto;
     margin-right: auto;
     padding: 1%;
-    display: none;  
 }
 
 #startbtn{
@@ -98,7 +97,6 @@ footer{
     margin-left: auto;
     margin-right: auto;
     padding: 1%;
-    display: none; 
 }
 
 #result-text{
