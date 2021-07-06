@@ -38,11 +38,11 @@ function restartQuiz(){
 
 /* --- Array of Quiz questions will look something like this: ---
 
-let questions = [
+const questions = [
     {
     Id: 1,
     question: "Text of the first question",
-    answer: "Correct answer of the first question",
+    answer: "option 1",
     options: [
         "option 1",
         "option 2",
@@ -53,7 +53,7 @@ let questions = [
     {
     Id: 2,
     question: "Text of the second question",
-    answer: "Correct answer of the seconf question",
+    answer: "option 1",
     options: [
         "option 1",
         "option 2",
