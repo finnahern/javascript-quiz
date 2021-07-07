@@ -56,7 +56,7 @@ function initialiseQuiz(){
 function pullQuestion(){
 	console.log("pullQuestion() called!")
 
-	//Adds event listeners when an answer is clicked. Needs to call the compareAnswer function
+	//Adds event listeners when an answer is clicked. Needs to call the compareAnswer() function
 	let options = document.getElementsByClassName("option");
 	for(let option of options){
 		option.addEventListener("click", function(){
@@ -122,7 +122,7 @@ function passQuiz(){
 }
 
 function failQuiz(){
-	//
+	//Alerts the user that they've failed and returns to the start-box screen.
 }
 
 function abortQuiz(){
