@@ -1,6 +1,7 @@
-//Wait for the DOM to finish loading before running Javascript
+//Wait for the DOM to finish loading before running Javascript.
 document.addEventListener("DOMContentLoaded", function(){
 	
+	//Loop to add event listeners to all buttons so they will call the appropriate function on click.
 	let buttons = document.getElementsByTagName("button");
 	for(let button of buttons){
     	button.addEventListener("click", function(){
@@ -21,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function(){
 })
 
 /* Loop to determine order of questions. Pulls 8 questions from the array of 12 and ensures 
-there are no duplicates */
+there are no duplicates. */
 const questionOrder = [];
 const numberOfQuestions = 8;
 while(questionOrder.length < numberOfQuestions){
@@ -31,7 +32,7 @@ while(questionOrder.length < numberOfQuestions){
 console.log(questionOrder);
 
 function initialiseQuiz(){
-	//Sets score counts to 0, pulls the initial array of questions
+	//Sets score counts to 0, pulls the initial array of questions.
 
 	console.log("Start button clicked, initialiseQuiz() called!")
 	document.getElementById('start-box').style.display = 'none';
@@ -64,9 +65,12 @@ function compareAnswer(){
 // incrementIncorrectCount. Both cases prompt the user to click next which calls pullQuestion again.
 }
 
+/**
+ * Increments the number-correct counter by 1. Called when the user correctly answers a question
+ */
 function incrementCorrectCount(){
-//Displays correctAnswer integer. Starts at 0 and increments by 1 every time the user answers a question correctly.
-//When correctAnswer = 5, calls passQuiz function.
+	let oldScore = parseInt(document.getElementById("number-correct").innerText);
+	document.getElementById("number-correct").textContent = ++oldScore;
 }
 
 function incrementIncorrectCount(){
