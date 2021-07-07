@@ -20,6 +20,16 @@ document.addEventListener("DOMContentLoaded", function(){
   	}
 })
 
+/* Loop to determine order of questions. Pulls 8 questions from the array of 12 and ensures 
+there are no duplicates */
+const questionOrder = [];
+const numberOfQuestions = 8;
+while(questionOrder.length < numberOfQuestions){
+    let r = Math.floor(Math.random() * 12);
+    if(questionOrder.indexOf(r) === -1) questionOrder.push(r);
+}
+console.log(questionOrder);
+
 function initialiseQuiz(){
 	//Sets score counts to 0, pulls the initial array of questions
 
@@ -27,6 +37,8 @@ function initialiseQuiz(){
 	document.getElementById('start-box').style.display = 'none';
 	document.getElementById('quiz-box').style.display = 'block';
 	document.getElementById('result-box').style.display = 'none';
+
+	pullQuestion();
 }
 
 function pullQuestion(){
@@ -38,12 +50,12 @@ function pullQuestion(){
 	//document.getElementById('quiz-box').style.display = 'none';
 	//document.getElementById('result-box').style.display = 'block';
 
-	document.getElementById('question-text').textContent = questions[0].question;
+	document.getElementById('question-text').textContent = questions[questionOrder[0]].question;
 	
-	document.getElementById('option1').textContent = questions[0].options[0];
-	document.getElementById('option2').textContent = questions[0].options[1];
-	document.getElementById('option3').textContent = questions[0].options[2];
-	document.getElementById('option4').textContent = questions[0].options[3];
+	document.getElementById('option1').textContent = questions[questionOrder[0]].options[0];
+	document.getElementById('option2').textContent = questions[questionOrder[0]].options[1];
+	document.getElementById('option3').textContent = questions[questionOrder[0]].options[2];
+	document.getElementById('option4').textContent = questions[questionOrder[0]].options[3];
 }
 
 function compareAnswer(){
@@ -100,7 +112,7 @@ const questions = [
 		]
   	},
     {
-    Id: 2,
+    	Id: 2,
 		question: "Text of the second question",
 		answer: "option 1",
 		options: [
@@ -144,7 +156,7 @@ const questions = [
 		]
 	},
 	{
-	Id: 6,
+		Id: 6,
 		question: "Text of the sixth question",
 		answer: "option 1",
 		options: [
@@ -188,7 +200,7 @@ const questions = [
 		]
 	},
 	{
-	Id: 10,
+		Id: 10,
 		question: "Text of the tenth question",
 		answer: "option 1",
 		options: [
