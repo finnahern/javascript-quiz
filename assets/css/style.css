@@ -107,6 +107,6 @@ footer{
     margin: 0 28% 0 28%;
 }
 
-.restart, .quit{
+#restart, #quit{
     margin : 1rem 0.5rem 0 0.5rem;
 }

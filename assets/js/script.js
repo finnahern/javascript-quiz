@@ -5,13 +5,13 @@ document.addEventListener("DOMContentLoaded", function(){
 	let buttons = document.getElementsByTagName("button");
 	for(let button of buttons){
     	button.addEventListener("click", function(){
-			if (this.getAttribute("class") === "start"){
+			if (this.getAttribute("id") === "startbtn"){
 				initialiseQuiz();
-			}else if (this.getAttribute("class") === "nextbtn"){
+			}else if (this.getAttribute("id") === "nextbtn"){
 				pullQuestion();
-			}else if (this.getAttribute("class") === "restart"){
+			}else if (this.getAttribute("id") === "restartbtn"){
 				restartQuiz();
-			}else if(this.getAttribute("class") === "quit"){
+			}else if(this.getAttribute("id") === "quitbtn"){
 				abortQuiz();
 			}else {
 				alert("Unrecognised button clicked!");
@@ -56,6 +56,8 @@ function initialiseQuiz(){
 function pullQuestion(){
 	console.log("pullQuestion() called!")
 
+	document.getElementById("nextbtn").disabled = "disabled";
+
 	//Adds event listeners when an answer is clicked. Needs to call the compareAnswer() function
 	let options = document.getElementsByClassName("option");
 	for(let option of options){
@@ -96,6 +98,8 @@ function compareAnswer(){
 	//compares the correct answer to the one the user selected. If it's correct highlights it in green and calls 
 	// incrementCorrectCount. If it's wrong, highlights in red, highlights the correct answer in green and calls
 	// incrementIncorrectCount. Both cases prompt the user to click next which calls pullQuestion again.
+
+	document.getElementById("nextbtn").disabled = "";
 }
 
 /**
