@@ -41,7 +41,7 @@ function initialiseQuiz(){
 	console.log(questionOrder);
 	//Resets score count to 0
 	document.getElementById("number-correct").textContent = "0";
-
+	//Hides start-box and result-box divs. Displays quiz-box.
 	document.getElementById("start-box").style.display = "none";
 	document.getElementById("quiz-box").style.display = "block";
 	document.getElementById("result-box").style.display = "none";
@@ -49,14 +49,40 @@ function initialiseQuiz(){
 	pullQuestion();
 }
 
+/**
+ * Adds event listeners to the answer options, Increments the question number and displays the question 
+ * text and answers from the next question in the questionOrder array.
+ */
 function pullQuestion(){
-	//Pulls a random question from the array and displays it on screen.
-	// Listens for user input and calls compareAnswer. Increments question-number span.
-
 	console.log("pullQuestion() called!")
 
+	//Adds event listeners when an answer is clicked. Needs to call the compareAnswer function
+	let options = document.getElementsByClassName("option");
+	for(let option of options){
+		option.addEventListener("click", function(){
+			if (this.getAttribute("id") === "option1"){
+				console.log("Option 1 clicked!")
+			}else if (this.getAttribute("id") === "option2"){
+				console.log("Option 2 clicked!")
+			}else if (this.getAttribute("id") === "option3"){
+				console.log("Option 3 clicked!")
+			}else if (this.getAttribute("id") === "option4"){
+				console.log("Option 4 clicked!")
+			}else {
+				alert("Unrecognised option clicked!");
+				throw "Unrecognised option clicked!, Aborting!";
+			}
+		})
+	}
+
+	//Increments Question number at the top of the div
+	let questionNumber = parseInt(document.getElementById("question-number").innerText);
+	++questionNumber;
+	document.getElementById("question-number").textContent = questionNumber;
+
+	//Displays the question and multiple chouce answers for the current question.
 	let currentQuestion = questionOrder.shift();
-	console.log(currentQuestion);
+	console.log(`Current question index: ${currentQuestion}`);
 
 	document.getElementById("question-text").textContent = questions[currentQuestion].question;
 	
@@ -67,9 +93,9 @@ function pullQuestion(){
 }
 
 function compareAnswer(){
-//compares the correct answer to the one the user selected. If it's correct highlights it in green and calls 
-// incrementCorrectCount. If it's wrong, highlights in red, highlights the correct answer in green and calls
-// incrementIncorrectCount. Both cases prompt the user to click next which calls pullQuestion again.
+	//compares the correct answer to the one the user selected. If it's correct highlights it in green and calls 
+	// incrementCorrectCount. If it's wrong, highlights in red, highlights the correct answer in green and calls
+	// incrementIncorrectCount. Both cases prompt the user to click next which calls pullQuestion again.
 }
 
 /**
@@ -87,12 +113,16 @@ function incrementCorrectCount(){
 }
 
 function incrementIncorrectCount(){
-//Displays 3 big greyed out Xs at the top of the quiz box throughout. When the user gets an answer wrong, one
-//of the Xs turns red. When all 3 are red calls abortQuiz function.
+	//Displays 3 big greyed out Xs at the top of the quiz box throughout. When the user gets an answer wrong, one
+	//of the Xs turns red. When all 3 are red calls abortQuiz function.
 }
 
 function passQuiz(){
-//Displays results box congratulating the user on passing the quiz and has two buttons to restart or quit(abortQuiz)
+	//Displays results box congratulating the user on passing the quiz and has two buttons to restart or quit(abortQuiz)
+}
+
+function failQuiz(){
+	//
 }
 
 function abortQuiz(){
