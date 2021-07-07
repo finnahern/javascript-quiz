@@ -21,23 +21,30 @@ document.addEventListener("DOMContentLoaded", function(){
   	}
 })
 
-/* Loop to determine order of questions. Pulls 8 questions from the array of 12 and ensures 
+/* Array to determine order of questions. Pulls 8 questions from the array of 12 and ensures 
 there are no duplicates. */
 const questionOrder = [];
 const numberOfQuestions = 8;
-while(questionOrder.length < numberOfQuestions){
-    let r = Math.floor(Math.random() * 12);
-    if(questionOrder.indexOf(r) === -1) questionOrder.push(r);
-}
-console.log(questionOrder);
 
+/**
+ * Initialises the quiz. Sets scores to 0, chooses the questions, displays the quiz box and calls 
+ * pullQuestion to display the first question.
+ */
 function initialiseQuiz(){
-	//Sets score counts to 0, pulls the initial array of questions.
-
 	console.log("Start button clicked, initialiseQuiz() called!")
-	document.getElementById('start-box').style.display = 'none';
-	document.getElementById('quiz-box').style.display = 'block';
-	document.getElementById('result-box').style.display = 'none';
+	
+	//Loop to populate questionOrder array
+	while(questionOrder.length < numberOfQuestions){
+		let r = Math.floor(Math.random() * 12);
+		if(questionOrder.indexOf(r) === -1) questionOrder.push(r);
+	}
+	console.log(questionOrder);
+	//Resets score count to 0
+	document.getElementById("number-correct").textContent = "0";
+
+	document.getElementById("start-box").style.display = "none";
+	document.getElementById("quiz-box").style.display = "block";
+	document.getElementById("result-box").style.display = "none";
 
 	pullQuestion();
 }
@@ -46,17 +53,17 @@ function pullQuestion(){
 	//Pulls a random question from the array and displays it on screen.
 	// Listens for user input and calls compareAnswer. Increments question-number span.
 
-	console.log("Next button clicked, pullQuestion() called!")
-	//document.getElementById('start-box').style.display = 'none';
-	//document.getElementById('quiz-box').style.display = 'none';
-	//document.getElementById('result-box').style.display = 'block';
+	console.log("pullQuestion() called!")
 
-	document.getElementById('question-text').textContent = questions[questionOrder[0]].question;
+	let currentQuestion = questionOrder.shift();
+	console.log(currentQuestion);
+
+	document.getElementById("question-text").textContent = questions[currentQuestion].question;
 	
-	document.getElementById('option1').textContent = questions[questionOrder[0]].options[0];
-	document.getElementById('option2').textContent = questions[questionOrder[0]].options[1];
-	document.getElementById('option3').textContent = questions[questionOrder[0]].options[2];
-	document.getElementById('option4').textContent = questions[questionOrder[0]].options[3];
+	document.getElementById("option1").textContent = questions[currentQuestion].options[0];
+	document.getElementById("option2").textContent = questions[currentQuestion].options[1];
+	document.getElementById("option3").textContent = questions[currentQuestion].options[2];
+	document.getElementById("option4").textContent = questions[currentQuestion].options[3];
 }
 
 function compareAnswer(){
@@ -67,7 +74,7 @@ function compareAnswer(){
 
 /**
  * Increments the number-correct counter by 1. Called when the user correctly answers a question.
- * If the number of correct answer
+ * If the number of correct answers hits 5, calls the passQuiz() function.
  */
 function incrementCorrectCount(){
 	let oldScore = parseInt(document.getElementById("number-correct").innerText);
@@ -92,9 +99,9 @@ function abortQuiz(){
 	//Cancels the quiz and returns to the start-box screen. Possibly acknowledges failure if called by incrementIncorrectCount
 
 	console.log("Quit button clicked, abortQuiz() called!")
-	document.getElementById('start-box').style.display = 'block';
-	document.getElementById('quiz-box').style.display = 'none';
-	document.getElementById('result-box').style.display = 'none';
+	document.getElementById("start-box").style.display = "block";
+	document.getElementById("quiz-box").style.display = "none";
+	document.getElementById("result-box").style.display = "none";
 }
 
 function restartQuiz(){
@@ -102,16 +109,16 @@ function restartQuiz(){
 	//can be pulled again
 	
 	console.log("Restart button clicked, restartQuiz() called!");
-	document.getElementById('start-box').style.display = 'none';
-	document.getElementById('quiz-box').style.display = 'block';
-	document.getElementById('result-box').style.display = 'none';
+	document.getElementById("start-box").style.display = "none";
+	document.getElementById("quiz-box").style.display = "block";
+	document.getElementById("result-box").style.display = "none";
 }
 
 /* --- Array of Quiz questions will look something like this: --- */
 
 const questions = [
     {
-		Id: 1,
+		//Question 1
 		question: "Text of the first question",
 		answer: "option 1",
 		options: [
@@ -122,7 +129,7 @@ const questions = [
 		]
   	},
     {
-    	Id: 2,
+    	//Question 2
 		question: "Text of the second question",
 		answer: "option 1",
 		options: [
@@ -133,7 +140,7 @@ const questions = [
 		]
   	},
   	{
-		Id: 3,
+		//Question 3
 		question: "Text of the third question",
 		answer: "option 1",
 		options: [
@@ -144,7 +151,7 @@ const questions = [
 		]
  	},
 	{
-		Id: 4,
+		//Question 4
 		question: "Text of the fourth question",
 		answer: "option 1",
 		options: [
@@ -155,7 +162,7 @@ const questions = [
 		]
 	},
 	{
-		Id: 5,
+		//Question 5
 		question: "Text of the fifth question",
 		answer: "option 1",
 		options: [
@@ -166,7 +173,7 @@ const questions = [
 		]
 	},
 	{
-		Id: 6,
+		//Question 6
 		question: "Text of the sixth question",
 		answer: "option 1",
 		options: [
@@ -177,7 +184,7 @@ const questions = [
 		]
 	},
 	{
-		Id: 7,
+		//Question 7
 		question: "Text of the seventh question",
 		answer: "option 1",
 		options: [
@@ -188,7 +195,7 @@ const questions = [
 		]
 	},
 	{
-		Id: 8,
+		//Question 8
 		question: "Text of the eighth question",
 		answer: "option 1",
 		options: [
@@ -199,7 +206,7 @@ const questions = [
 		]
 	},
 	{
-		Id: 9,
+		//Question 9
 		question: "Text of the ninth question",
 		answer: "option 1",
 		options: [
@@ -210,7 +217,7 @@ const questions = [
 		]
 	},
 	{
-		Id: 10,
+		//Question 10
 		question: "Text of the tenth question",
 		answer: "option 1",
 		options: [
@@ -221,7 +228,7 @@ const questions = [
 		]
 	},
 	{
-		Id: 11,
+		//Question 11
 		question: "Text of the eleventh question",
 		answer: "option 1",
 		options: [
@@ -232,7 +239,7 @@ const questions = [
 		]
 	},
 	{
-		Id: 12,
+		//Question 12
 		question: "Text of the twelfth question",
 		answer: "option 1",
 		options: [
