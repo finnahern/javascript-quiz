@@ -43,8 +43,8 @@ function initialiseQuiz(){
 }
 
 function pullQuestion(){
-	//Pulls a random question from the array and displays it on screen. Stores Question ID so it doesn't pull
-	//the same one again. Listens for user input and calls compareAnswer. Increments question-number span.
+	//Pulls a random question from the array and displays it on screen.
+	// Listens for user input and calls compareAnswer. Increments question-number span.
 
 	console.log("Next button clicked, pullQuestion() called!")
 	//document.getElementById('start-box').style.display = 'none';
@@ -66,11 +66,17 @@ function compareAnswer(){
 }
 
 /**
- * Increments the number-correct counter by 1. Called when the user correctly answers a question
+ * Increments the number-correct counter by 1. Called when the user correctly answers a question.
+ * If the number of correct answer
  */
 function incrementCorrectCount(){
 	let oldScore = parseInt(document.getElementById("number-correct").innerText);
-	document.getElementById("number-correct").textContent = ++oldScore;
+	let newScore = ++oldScore
+	document.getElementById("number-correct").textContent = newScore;
+
+	if(newScore => 5){
+		passQuiz();
+	}
 }
 
 function incrementIncorrectCount(){
