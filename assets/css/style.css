@@ -57,7 +57,8 @@ button{
     top: 0.5rem;
     right: 1rem;
 
-    color: red;
+	font-size: 150%;
+    color: darkgrey;
 }
 
 .question-text{

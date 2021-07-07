@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function(){
 })
 
 function initialiseQuiz(){
-	//Calls pullQuesiton
+	//Sets score counts to 0, pulls the initial array of questions
 
 	console.log("Start button clicked, initialiseQuiz() called!")
 	document.getElementById('start-box').style.display = 'none';
@@ -34,9 +34,16 @@ function pullQuestion(){
 	//the same one again. Listens for user input and calls compareAnswer. Increments question-number span.
 
 	console.log("Next button clicked, pullQuestion() called!")
-	document.getElementById('start-box').style.display = 'none';
-	document.getElementById('quiz-box').style.display = 'none';
-	document.getElementById('result-box').style.display = 'block';
+	//document.getElementById('start-box').style.display = 'none';
+	//document.getElementById('quiz-box').style.display = 'none';
+	//document.getElementById('result-box').style.display = 'block';
+
+	document.getElementById('question-text').textContent = questions[0].question;
+	
+	document.getElementById('option1').textContent = questions[0].options[0];
+	document.getElementById('option2').textContent = questions[0].options[1];
+	document.getElementById('option3').textContent = questions[0].options[2];
+	document.getElementById('option4').textContent = questions[0].options[3];
 }
 
 function compareAnswer(){
@@ -82,36 +89,135 @@ function restartQuiz(){
 
 const questions = [
     {
-    Id: 1,
-    question: "Text of the first question",
-    answer: "option 1",
-    options: [
-        "option 1",
-        "option 2",
-        "option 3",
-        "option 4"
-    	]
+		Id: 1,
+		question: "Text of the first question",
+		answer: "option 1",
+		options: [
+			"option 1",
+			"option 2",
+			"option 3",
+			"option 4"
+		]
   	},
     {
     Id: 2,
-    question: "Text of the second question",
-    answer: "option 1",
-    options: [
-        "option 1",
-        "option 2",
-        "option 3",
-        "option 4"
-    	]
+		question: "Text of the second question",
+		answer: "option 1",
+		options: [
+			"option 1",
+			"option 2",
+			"option 3",
+			"option 4"
+		]
   	},
   	{
-    Id: 3,
-    question: "Text of the third question",
-    answer: "option 1",
-    options: [
-        "option 1",
-        "option 2",
-        "option 3",
-        "option 4"
-    	]
- 	}
+		Id: 3,
+		question: "Text of the third question",
+		answer: "option 1",
+		options: [
+			"option 1",
+			"option 2",
+			"option 3",
+			"option 4"
+		]
+ 	},
+	{
+		Id: 4,
+		question: "Text of the fourth question",
+		answer: "option 1",
+		options: [
+			"option 1",
+			"option 2",
+			"option 3",
+			"option 4"
+		]
+	},
+	{
+		Id: 5,
+		question: "Text of the fifth question",
+		answer: "option 1",
+		options: [
+			"option 1",
+			"option 2",
+			"option 3",
+			"option 4"
+		]
+	},
+	{
+	Id: 6,
+		question: "Text of the sixth question",
+		answer: "option 1",
+		options: [
+			"option 1",
+			"option 2",
+			"option 3",
+			"option 4"
+		]
+	},
+	{
+		Id: 7,
+		question: "Text of the seventh question",
+		answer: "option 1",
+		options: [
+			"option 1",
+			"option 2",
+			"option 3",
+			"option 4"
+		]
+	},
+	{
+		Id: 8,
+		question: "Text of the eighth question",
+		answer: "option 1",
+		options: [
+			"option 1",
+			"option 2",
+			"option 3",
+			"option 4"
+		]
+	},
+	{
+		Id: 9,
+		question: "Text of the ninth question",
+		answer: "option 1",
+		options: [
+			"option 1",
+			"option 2",
+			"option 3",
+			"option 4"
+		]
+	},
+	{
+	Id: 10,
+		question: "Text of the tenth question",
+		answer: "option 1",
+		options: [
+			"option 1",
+			"option 2",
+			"option 3",
+			"option 4"
+		]
+	},
+	{
+		Id: 11,
+		question: "Text of the eleventh question",
+		answer: "option 1",
+		options: [
+			"option 1",
+			"option 2",
+			"option 3",
+			"option 4"
+		]
+	},
+	{
+		Id: 12,
+		question: "Text of the twelfth question",
+		answer: "option 1",
+		options: [
+			"option 1",
+			"option 2",
+			"option 3",
+			"option 4"
+		]
+	},
 ]
