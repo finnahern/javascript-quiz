@@ -4,10 +4,12 @@ document.addEventListener("DOMContentLoaded", function(){
 	let buttons = document.getElementsByTagName("button");
 	for(let button of buttons){
     	button.addEventListener("click", function(){
-    		if (this.getAttribute("class") === "restart"){
-				restartQuiz();
+			if (this.getAttribute("class") === "start"){
+				initialiseQuiz();
 			}else if (this.getAttribute("class") === "nextbtn"){
 				pullQuestion();
+			}else if (this.getAttribute("class") === "restart"){
+				restartQuiz();
 			}else if(this.getAttribute("class") === "quit"){
 				abortQuiz();
 			}else {
@@ -19,7 +21,12 @@ document.addEventListener("DOMContentLoaded", function(){
 })
 
 function initialiseQuiz(){
-//Calls pullQuesiton
+	//Calls pullQuesiton
+
+	console.log("Start button clicked, initialiseQuiz() called!")
+	document.getElementById('start-box').style.display = 'none';
+	document.getElementById('quiz-box').style.display = 'block';
+	document.getElementById('result-box').style.display = 'none';
 }
 
 function pullQuestion(){
@@ -27,6 +34,9 @@ function pullQuestion(){
 	//the same one again. Listens for user input and calls compareAnswer. Increments question-number span.
 
 	console.log("Next button clicked, pullQuestion() called!")
+	document.getElementById('start-box').style.display = 'none';
+	document.getElementById('quiz-box').style.display = 'none';
+	document.getElementById('result-box').style.display = 'block';
 }
 
 function compareAnswer(){
@@ -53,16 +63,22 @@ function abortQuiz(){
 	//Cancels the quiz and returns to the start-box screen. Possibly acknowledges failure if called by incrementIncorrectCount
 
 	console.log("Quit button clicked, abortQuiz() called!")
+	document.getElementById('start-box').style.display = 'block';
+	document.getElementById('quiz-box').style.display = 'none';
+	document.getElementById('result-box').style.display = 'none';
 }
 
 function restartQuiz(){
 	//Resets the correct and incorrect answer counts to 0 and clears the list of Question IDs already completed so they 
 	//can be pulled again
 	
-	console.log("Start/Restart button clicked, restartQuiz() called!");
+	console.log("Restart button clicked, restartQuiz() called!");
+	document.getElementById('start-box').style.display = 'none';
+	document.getElementById('quiz-box').style.display = 'block';
+	document.getElementById('result-box').style.display = 'none';
 }
 
-/* --- Array of Quiz questions will look something like this: ---
+/* --- Array of Quiz questions will look something like this: --- */
 
 const questions = [
     {
@@ -74,8 +90,8 @@ const questions = [
         "option 2",
         "option 3",
         "option 4"
-    ]
-  },
+    	]
+  	},
     {
     Id: 2,
     question: "Text of the second question",
@@ -85,8 +101,17 @@ const questions = [
         "option 2",
         "option 3",
         "option 4"
-    ]
-  },
-
-  etc....
-*/
+    	]
+  	},
+  	{
+    Id: 3,
+    question: "Text of the third question",
+    answer: "option 1",
+    options: [
+        "option 1",
+        "option 2",
+        "option 3",
+        "option 4"
+    	]
+ 	}
+]

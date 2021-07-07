@@ -16,12 +16,12 @@ button{
     background-color: rgb(0, 119, 255);
     color: white;
     border: none;
-    width: 7rem;
-    height: 2.5rem;
+    width: 10rem;
+    height: 3rem;
 }
 
 /* --- Start box --- */
-.start-box {
+#start-box {
     background-color: #E6ECF0;
     box-sizing: border-box;
     width: 85%;
@@ -38,7 +38,7 @@ button{
 }
 
 /* --- Quiz box --- */
-.quiz-box{
+#quiz-box{
     position: relative;
     background-color: #E6ECF0;
     box-sizing: border-box;
@@ -49,7 +49,7 @@ button{
     margin-left: auto;
     margin-right: auto;
     padding: 1%;
-     
+	display: none;     
 }
 
 .incorrect{
@@ -86,7 +86,7 @@ footer{
 }
 
 /* --- Results box --- */
-.result-box{
+#result-box{
     position: relative;
     background-color: #E6ECF0;
     box-sizing: border-box;
@@ -97,6 +97,7 @@ footer{
     margin-left: auto;
     margin-right: auto;
     padding: 1%;
+	display: none;
 }
 
 #result-text{
