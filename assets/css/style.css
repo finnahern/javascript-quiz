@@ -75,7 +75,8 @@ body {
 
 .option{
     width: 85%;
-    margin-top: 0.5rem;
+	height: 3.5rem;
+    margin-top: 0.75rem;
     border: solid 1px black;
 
 	font-size: 2rem;
