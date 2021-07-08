@@ -66,12 +66,16 @@ function pullQuestion(){
 		option.addEventListener("click", function(){
 			if (this.getAttribute("id") === "option1"){
 				console.log("Option 1 clicked!")
+				compareAnswer("option1");
 			}else if (this.getAttribute("id") === "option2"){
 				console.log("Option 2 clicked!")
+				compareAnswer("option2");
 			}else if (this.getAttribute("id") === "option3"){
 				console.log("Option 3 clicked!")
+				compareAnswer("option3");
 			}else if (this.getAttribute("id") === "option4"){
 				console.log("Option 4 clicked!")
+				compareAnswer("option4");
 			}else {
 				alert("Unrecognised option clicked!");
 				throw "Unrecognised option clicked!, Aborting!";
@@ -96,13 +100,25 @@ function pullQuestion(){
 	document.getElementById("option4").textContent = questions[currentQuestion].options[3];
 }
 
-function compareAnswer(){
-	//compares the correct answer to the one the user selected. If it's correct highlights it in green and calls 
-	// incrementCorrectCount. If it's wrong, highlights in red, highlights the correct answer in green and calls
-	// incrementIncorrectCount. Both cases prompt the user to click next which calls pullQuestion again.
+/**
+ * Compares the user's selected answer to the correct answer from the question array. Call 
+ * incrementCorrectCount or incrementIncorrectCount depending and display feedback to user.
+ */
+function compareAnswer(selectedOption){
 
+	console.log("compareAnswer called!")
+	//Enables the Next button and changes its colour to blue.
 	document.getElementById("nextbtn").disabled = "";
 	document.getElementById("nextbtn").style.background='#0077ff';
+
+	let correctAnswer = questions[0].answer;
+	let userAnswer = document.getElementById(selectedOption).textContent;
+
+	if(userAnswer === correctAnswer){
+		console.log("Clicked the right answer! :D");
+	} else{
+		console.log("Fucked it mate");
+	}
 }
 
 /**
@@ -157,9 +173,9 @@ const questions = [
     {
 		//Question 1
 		question: "Text of the first question",
-		answer: "option 1",
+		answer: "the right answer",
 		options: [
-			"option 1",
+			"the right answer",
 			"option 2",
 			"option 3",
 			"option 4"
@@ -168,10 +184,10 @@ const questions = [
     {
     	//Question 2
 		question: "Text of the second question",
-		answer: "option 1",
+		answer: "the right answer",
 		options: [
 			"option 1",
-			"option 2",
+			"the right answer",
 			"option 3",
 			"option 4"
 		]
@@ -179,31 +195,31 @@ const questions = [
   	{
 		//Question 3
 		question: "Text of the third question",
-		answer: "option 1",
+		answer: "the right answer",
 		options: [
 			"option 1",
 			"option 2",
-			"option 3",
+			"the right answer",
 			"option 4"
 		]
  	},
 	{
 		//Question 4
 		question: "Text of the fourth question",
-		answer: "option 1",
+		answer: "the right answer",
 		options: [
 			"option 1",
 			"option 2",
 			"option 3",
-			"option 4"
+			"the right answer"
 		]
 	},
 	{
 		//Question 5
 		question: "Text of the fifth question",
-		answer: "option 1",
+		answer: "the right answer",
 		options: [
-			"option 1",
+			"the right answer",
 			"option 2",
 			"option 3",
 			"option 4"
@@ -212,10 +228,10 @@ const questions = [
 	{
 		//Question 6
 		question: "Text of the sixth question",
-		answer: "option 1",
+		answer: "the right answer",
 		options: [
 			"option 1",
-			"option 2",
+			"the right answer",
 			"option 3",
 			"option 4"
 		]
@@ -223,31 +239,31 @@ const questions = [
 	{
 		//Question 7
 		question: "Text of the seventh question",
-		answer: "option 1",
+		answer: "the right answer",
 		options: [
 			"option 1",
 			"option 2",
-			"option 3",
+			"the right answer",
 			"option 4"
 		]
 	},
 	{
 		//Question 8
 		question: "Text of the eighth question",
-		answer: "option 1",
+		answer: "the right answer",
 		options: [
 			"option 1",
 			"option 2",
 			"option 3",
-			"option 4"
+			"the right answer"
 		]
 	},
 	{
 		//Question 9
 		question: "Text of the ninth question",
-		answer: "option 1",
+		answer: "the right answer",
 		options: [
-			"option 1",
+			"the right answer",
 			"option 2",
 			"option 3",
 			"option 4"
@@ -256,10 +272,10 @@ const questions = [
 	{
 		//Question 10
 		question: "Text of the tenth question",
-		answer: "option 1",
+		answer: "the right answer",
 		options: [
 			"option 1",
-			"option 2",
+			"the right answer",
 			"option 3",
 			"option 4"
 		]
@@ -267,23 +283,23 @@ const questions = [
 	{
 		//Question 11
 		question: "Text of the eleventh question",
-		answer: "option 1",
+		answer: "the right answer",
 		options: [
 			"option 1",
 			"option 2",
-			"option 3",
+			"the right answer",
 			"option 4"
 		]
 	},
 	{
 		//Question 12
 		question: "Text of the twelfth question",
-		answer: "option 1",
+		answer: "the right answer",
 		options: [
 			"option 1",
 			"option 2",
 			"option 3",
-			"option 4"
+			"the right answer"
 		]
 	},
 ]
