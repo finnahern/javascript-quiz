@@ -12,7 +12,7 @@ body {
     font-size: 2rem;
 }
 
-button{
+.button{
     background-color: #0077ff;
     color: white;
     border: none;
@@ -74,9 +74,11 @@ button{
 }
 
 .option{
-    max-width: 96%;
+    width: 85%;
     margin-top: 0.5rem;
     border: solid 1px black;
+
+	font-size: 2rem;
 }
 
 /* --- Quiz box footer --- */
