@@ -56,7 +56,9 @@ function initialiseQuiz(){
 function pullQuestion(){
 	console.log("pullQuestion() called!")
 
+	//Disable the Next button and change its colour to grey
 	document.getElementById("nextbtn").disabled = "disabled";
+	document.getElementById("nextbtn").style.background='#a9a9a9';
 
 	//Adds event listeners when an answer is clicked. Needs to call the compareAnswer() function
 	let options = document.getElementsByClassName("option");
@@ -100,6 +102,7 @@ function compareAnswer(){
 	// incrementIncorrectCount. Both cases prompt the user to click next which calls pullQuestion again.
 
 	document.getElementById("nextbtn").disabled = "";
+	document.getElementById("nextbtn").style.background='#0077ff';
 }
 
 /**

@@ -13,7 +13,7 @@ body {
 }
 
 button{
-    background-color: rgb(0, 119, 255);
+    background-color: #0077ff;
     color: white;
     border: none;
     width: 10rem;
@@ -58,7 +58,7 @@ button{
     right: 1rem;
 
 	font-size: 150%;
-    color: darkgrey;
+    color: #a9a9a9;
 }
 
 .question-text{
