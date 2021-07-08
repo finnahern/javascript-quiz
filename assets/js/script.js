@@ -62,8 +62,10 @@ function initialiseQuiz(){
 		if(questionOrder.indexOf(r) === -1) questionOrder.push(r);
 	}
 	console.log(questionOrder);
+
 	//Resets score count to 0
 	document.getElementById("number-correct").textContent = "0";
+
 	//Hides start-box and result-box divs. Displays quiz-box.
 	document.getElementById("start-box").style.display = "none";
 	document.getElementById("quiz-box").style.display = "block";
@@ -83,10 +85,20 @@ function pullQuestion(){
 	document.getElementById("nextbtn").disabled = "disabled";
 	document.getElementById("nextbtn").style.background='#a9a9a9';
 
+	let options = document.getElementsByClassName("option");
+	for(i = 0; i > options.length; i++){
+		this.style.background="white";
+	}
+
+	//Enable the option buttons
+	//document.getElementsByClassName("option").disabled = "";
+	//console.log("Option buttons enabled");
+	
 	//Increments Question number at the top of the div
 	let questionNumber = parseInt(document.getElementById("question-number").innerText);
 	++questionNumber;
 	document.getElementById("question-number").textContent = questionNumber;
+
 
 	//Displays the question and multiple chouce answers for the current question.
 	let currentQuestion = questionOrder.shift();
@@ -105,19 +117,31 @@ function pullQuestion(){
  * incrementCorrectCount or incrementIncorrectCount depending and display feedback to user.
  */
 function compareAnswer(selectedOption){
-
 	console.log("compareAnswer called!")
+
 	//Enables the Next button and changes its colour to blue.
 	document.getElementById("nextbtn").disabled = "";
-	document.getElementById("nextbtn").style.background='#0077ff';
+	document.getElementById("nextbtn").style.background="#0077ff";
 
+	//Disables the option buttons
+	//document.getElementsByClassName("option").disabled = "disabled";
+	//console.log("Option buttons disabled");
+
+	//Defines correctAnswer and userAnswer and compares them.
 	let correctAnswer = questions[0].answer;
 	let userAnswer = document.getElementById(selectedOption).textContent;
+	
+
 
 	if(userAnswer === correctAnswer){
 		console.log("Clicked the right answer! :D");
+		incrementCorrectCount();
+
+		document.getElementById(selectedOption).style.background="#1dcc4b";
 	} else{
 		console.log("Fucked it mate");
+
+		document.getElementById(selectedOption).style.background="#cc2121";
 	}
 }
 
