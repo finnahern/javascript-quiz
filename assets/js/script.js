@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", function(){
 	
 	//Loop to add event listeners to all buttons so they will call the appropriate function on click.
-	let buttons = document.getElementsByTagName("button");
+	let buttons = document.getElementsByClassName("button");
 	for(let button of buttons){
     	button.addEventListener("click", function(){
 			if (this.getAttribute("id") === "startbtn"){
@@ -19,6 +19,29 @@ document.addEventListener("DOMContentLoaded", function(){
 			}
     	})
   	}
+
+	//Loop to add event listeners when an answer is clicked. Needs to call the compareAnswer() function
+	let options = document.getElementsByClassName("option");
+	for(let option of options){
+		option.addEventListener("click", function(){
+			if (this.getAttribute("id") === "option1"){
+				console.log("Option 1 clicked!")
+				compareAnswer("option1");
+			}else if (this.getAttribute("id") === "option2"){
+				console.log("Option 2 clicked!")
+				compareAnswer("option2");
+			}else if (this.getAttribute("id") === "option3"){
+				console.log("Option 3 clicked!")
+				compareAnswer("option3");
+			}else if (this.getAttribute("id") === "option4"){
+				console.log("Option 4 clicked!")
+				compareAnswer("option4");
+			}else {
+				alert("Unrecognised option clicked!");
+				throw "Unrecognised option clicked!, Aborting!";
+			}
+		})
+	}
 })
 
 /* Array to determine order of questions. Pulls 8 questions from the array of 12 and ensures 
@@ -50,7 +73,7 @@ function initialiseQuiz(){
 }
 
 /**
- * Adds event listeners to the answer options, Increments the question number and displays the question 
+ * Increments the question number and displays the question 
  * text and answers from the next question in the questionOrder array.
  */
 function pullQuestion(){
@@ -59,29 +82,6 @@ function pullQuestion(){
 	//Disable the Next button and change its colour to grey
 	document.getElementById("nextbtn").disabled = "disabled";
 	document.getElementById("nextbtn").style.background='#a9a9a9';
-
-	//Adds event listeners when an answer is clicked. Needs to call the compareAnswer() function
-	let options = document.getElementsByClassName("option");
-	for(let option of options){
-		option.addEventListener("click", function(){
-			if (this.getAttribute("id") === "option1"){
-				console.log("Option 1 clicked!")
-				compareAnswer("option1");
-			}else if (this.getAttribute("id") === "option2"){
-				console.log("Option 2 clicked!")
-				compareAnswer("option2");
-			}else if (this.getAttribute("id") === "option3"){
-				console.log("Option 3 clicked!")
-				compareAnswer("option3");
-			}else if (this.getAttribute("id") === "option4"){
-				console.log("Option 4 clicked!")
-				compareAnswer("option4");
-			}else {
-				alert("Unrecognised option clicked!");
-				throw "Unrecognised option clicked!, Aborting!";
-			}
-		})
-	}
 
 	//Increments Question number at the top of the div
 	let questionNumber = parseInt(document.getElementById("question-number").innerText);
