@@ -49,6 +49,8 @@ there are no duplicates. */
 const questionOrder = [];
 const numberOfQuestions = 8;
 
+let incorrectCount = 0;
+
 /**
  * Initialises the quiz. Sets scores to 0, chooses the questions, displays the quiz box and calls 
  * pullQuestion to display the first question.
@@ -63,8 +65,9 @@ function initialiseQuiz(){
 	}
 	console.log(questionOrder);
 
-	//Resets score count to 0
+	//Resets score counts to 0
 	document.getElementById("number-correct").textContent = "0";
+	incorrectCount = 0;
 
 	//Hides start-box and result-box divs. Displays quiz-box.
 	document.getElementById("start-box").style.display = "none";
@@ -87,11 +90,6 @@ function pullQuestion(){
 	//Disable the Next button and change its colour to grey
 	document.getElementById("nextbtn").disabled = true;
 	document.getElementById("nextbtn").style.background='#a9a9a9';
-
-	let options = document.getElementsByClassName("option");
-	for(i = 0; i > options.length; i++){
-		this.style.background="white";
-	}
 
 	//Enable the option buttons
 	enableOptions();
@@ -141,6 +139,8 @@ function compareAnswer(selectedOption){
 		document.getElementById(selectedOption).style.background="#1dcc4b";
 	} else{
 		console.log("Fucked it mate");
+		incorrectCount = incrementIncorrectCount(incorrectCount);
+		console.log(incorrectCount);
 
 		document.getElementById(selectedOption).style.background="#cc2121";
 	}
@@ -160,9 +160,42 @@ function incrementCorrectCount(){
 	}
 }
 
-function incrementIncorrectCount(){
+function incrementIncorrectCount(incorrectCount){
 	//Displays 3 big greyed out Xs at the top of the quiz box throughout. When the user gets an answer wrong, one
 	//of the Xs turns red. When all 3 are red calls abortQuiz function.
+	let currentCount = incorrectCount;
+	currentCount++;
+
+	switch(currentCount){
+		case 0:
+			document.getElementById("incorrect1").style.color="#a9a9a9";
+			document.getElementById("incorrect2").style.color="#a9a9a9";
+			document.getElementById("incorrect3").style.color="#a9a9a9";
+			break;
+		case 1:
+			document.getElementById("incorrect1").style.color="#cc2121";
+			break;
+		case 2:
+			document.getElementById("incorrect1").style.color="#cc2121";
+			document.getElementById("incorrect2").style.color="#cc2121";
+			break;
+		case 3:
+			document.getElementById("incorrect1").style.color="#cc2121";
+			document.getElementById("incorrect2").style.color="#cc2121";
+			document.getElementById("incorrect3").style.color="#cc2121";
+			break;
+		default: 
+			document.getElementById("incorrect1").style.color="#a9a9a9";
+			document.getElementById("incorrect2").style.color="#a9a9a9";
+			document.getElementById("incorrect3").style.color="#a9a9a9";
+			break;
+	}
+
+	if(currentCount >= 3){
+		failQuiz();
+	}
+
+	return currentCount;
 }
 
 function passQuiz(){
@@ -212,6 +245,9 @@ function disableOptions(){
 	document.getElementById("option4").disabled = true;
 }
 
+/**
+ * Resets the colours of the option buttons once the next question is displayed
+ */
 function resetColour(){
 	document.getElementById("option1").style.background="#efefef";
 	document.getElementById("option2").style.background="#efefef";
