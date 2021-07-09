@@ -81,6 +81,9 @@ function initialiseQuiz(){
 function pullQuestion(){
 	console.log("pullQuestion() called!")
 
+	//Reset the background colour of the option buttons
+	resetColour();
+
 	//Disable the Next button and change its colour to grey
 	document.getElementById("nextbtn").disabled = true;
 	document.getElementById("nextbtn").style.background='#a9a9a9';
@@ -207,6 +210,13 @@ function disableOptions(){
 	document.getElementById("option2").disabled = true;
 	document.getElementById("option3").disabled = true;
 	document.getElementById("option4").disabled = true;
+}
+
+function resetColour(){
+	document.getElementById("option1").style.background="#efefef";
+	document.getElementById("option2").style.background="#efefef";
+	document.getElementById("option3").style.background="#efefef";
+	document.getElementById("option4").style.background="#efefef";
 }
 
 /* --- Array of Quiz questions will look something like this: --- */

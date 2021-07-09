@@ -1,1 +1,1 @@
-Bug: Loop to add event listeners to mutiple choice answers was in the pullQuestion function meaning that every time the function was called to display a new question meaning that the compareAnswer function was getting called once the first answer you clicked, twice for the second and so on. Probably have to move the loop to the global scope.
+# Javascript quiz
