@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function(){
 			}else if (this.getAttribute("id") === "nextbtn"){
 				pullQuestion();
 			}else if (this.getAttribute("id") === "restartbtn"){
-				restartQuiz();
+				initialiseQuiz();
 			}else if(this.getAttribute("id") === "quitbtn"){
 				abortQuiz();
 			}else {
@@ -155,14 +155,16 @@ function incrementCorrectCount(){
 	let newScore = ++oldScore
 	document.getElementById("number-correct").textContent = newScore;
 
-	if(newScore => 5){
+	if(newScore >= 5){
 		passQuiz();
 	}
 }
 
+/**
+ * Displays 3 big greyed out Xs at the top of the quiz box throughout. When the user gets an answer wrong, 
+ * one of the Xs turns red. When all 3 are red calls failQuiz function.
+ */
 function incrementIncorrectCount(incorrectCount){
-	//Displays 3 big greyed out Xs at the top of the quiz box throughout. When the user gets an answer wrong, one
-	//of the Xs turns red. When all 3 are red calls abortQuiz function.
 	let currentCount = incorrectCount;
 	currentCount++;
 
@@ -198,30 +200,40 @@ function incrementIncorrectCount(incorrectCount){
 	return currentCount;
 }
 
+/**
+ * Displays results box congratulating the user on passing the quiz and has two buttons 
+ * to restart(initialiseQuiz) or quit(abortQuiz).
+ */
 function passQuiz(){
-	//Displays results box congratulating the user on passing the quiz and has two buttons to restart or quit(abortQuiz)
+	console.log("Quiz passed!");
+
+	document.getElementById("start-box").style.display = "none";
+	document.getElementById("quiz-box").style.display = "none";
+	document.getElementById("result-box").style.display = "block";
 }
 
+/**
+ * Displays the results box but edits the content in the DOM to indicate the the user failed
+ * the quiz. 2 buttons prompt the user to restart(initialiseQuiz) or quit(abortQuiz).
+ */
 function failQuiz(){
-	//Alerts the user that they've failed and returns to the start-box screen.
+	console.log("Quiz failed!");
+
+	document.getElementById("icon").innerHTML = "<i class='fas fa-times'></i>";
+	document.getElementById("completed-text").innerText = "You failed the quiz, better luck next time!";
+	
+	document.getElementById("start-box").style.display = "none";
+	document.getElementById("quiz-box").style.display = "none";
+	document.getElementById("result-box").style.display = "block";
 }
 
+/**
+ * Cancels the quiz and returns to the start-box screen.
+ */
 function abortQuiz(){
-	//Cancels the quiz and returns to the start-box screen. Possibly acknowledges failure if called by incrementIncorrectCount
-
-	console.log("Quit button clicked, abortQuiz() called!")
+	console.log("Quit button clicked, abortQuiz() called!");
 	document.getElementById("start-box").style.display = "block";
 	document.getElementById("quiz-box").style.display = "none";
-	document.getElementById("result-box").style.display = "none";
-}
-
-function restartQuiz(){
-	//Resets the correct and incorrect answer counts to 0 and clears the list of Question IDs already completed so they 
-	//can be pulled again
-	
-	console.log("Restart button clicked, restartQuiz() called!");
-	document.getElementById("start-box").style.display = "none";
-	document.getElementById("quiz-box").style.display = "block";
 	document.getElementById("result-box").style.display = "none";
 }
 
