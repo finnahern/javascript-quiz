@@ -57,6 +57,11 @@ let incorrectCount = 0;
  */
 function initialiseQuiz(){
 	console.log("Start button clicked, initialiseQuiz() called!")
+	console.log(incorrectCount);
+
+	//Resets score counts to 0
+	document.getElementById("number-correct").textContent = "0";
+	incorrectCount = 0;
 	
 	//Loop to populate questionOrder array
 	while(questionOrder.length < numberOfQuestions){
@@ -64,10 +69,6 @@ function initialiseQuiz(){
 		if(questionOrder.indexOf(r) === -1) questionOrder.push(r);
 	}
 	console.log(questionOrder);
-
-	//Resets score counts to 0
-	document.getElementById("number-correct").textContent = "0";
-	incorrectCount = 0;
 
 	//Hides start-box and result-box divs. Displays quiz-box.
 	document.getElementById("start-box").style.display = "none";
