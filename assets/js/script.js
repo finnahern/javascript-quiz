@@ -82,7 +82,7 @@ function pullQuestion(){
 	console.log("pullQuestion() called!")
 
 	//Disable the Next button and change its colour to grey
-	document.getElementById("nextbtn").disabled = "disabled";
+	document.getElementById("nextbtn").disabled = true;
 	document.getElementById("nextbtn").style.background='#a9a9a9';
 
 	let options = document.getElementsByClassName("option");
@@ -91,8 +91,7 @@ function pullQuestion(){
 	}
 
 	//Enable the option buttons
-	//document.getElementsByClassName("option").disabled = "";
-	//console.log("Option buttons enabled");
+	enableOptions();
 	
 	//Increments Question number at the top of the div
 	let questionNumber = parseInt(document.getElementById("question-number").innerText);
@@ -120,12 +119,11 @@ function compareAnswer(selectedOption){
 	console.log("compareAnswer called!")
 
 	//Enables the Next button and changes its colour to blue.
-	document.getElementById("nextbtn").disabled = "";
+	document.getElementById("nextbtn").disabled = false;
 	document.getElementById("nextbtn").style.background="#0077ff";
 
 	//Disables the option buttons
-	//document.getElementsByClassName("option").disabled = "disabled";
-	//console.log("Option buttons disabled");
+	disableOptions();
 
 	//Defines correctAnswer and userAnswer and compares them.
 	let correctAnswer = questions[0].answer;
@@ -189,6 +187,26 @@ function restartQuiz(){
 	document.getElementById("start-box").style.display = "none";
 	document.getElementById("quiz-box").style.display = "block";
 	document.getElementById("result-box").style.display = "none";
+}
+
+/**
+ * Enables the option button elements
+ */
+function enableOptions(){
+	document.getElementById("option1").disabled = false;
+	document.getElementById("option2").disabled = false;
+	document.getElementById("option3").disabled = false;
+	document.getElementById("option4").disabled = false;	
+}
+
+/**
+ * Disables the option button elements
+ */
+function disableOptions(){
+	document.getElementById("option1").disabled = true;
+	document.getElementById("option2").disabled = true;
+	document.getElementById("option3").disabled = true;
+	document.getElementById("option4").disabled = true;
 }
 
 /* --- Array of Quiz questions will look something like this: --- */

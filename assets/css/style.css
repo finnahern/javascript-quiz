@@ -82,6 +82,10 @@ body {
 	font-size: 2rem;
 }
 
+.option:disabled{
+	color: #445361;
+}
+
 /* --- Quiz box footer --- */
 footer{
     position: absolute;
