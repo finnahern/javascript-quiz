@@ -222,6 +222,7 @@ function failQuiz(){
 
 	document.getElementById("icon").innerHTML = "<i class='fas fa-times'></i>";
 	document.getElementById("completed-text").innerText = "You failed the quiz, better luck next time!";
+	document.getElementById("restartbtn").innerText = "Try Again";
 	
 	document.getElementById("start-box").style.display = "none";
 	document.getElementById("quiz-box").style.display = "none";
