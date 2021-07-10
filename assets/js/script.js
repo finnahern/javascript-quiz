@@ -62,6 +62,11 @@ function initialiseQuiz(){
 	//Resets score counts to 0
 	document.getElementById("number-correct").textContent = "0";
 	incorrectCount = 0;
+
+	//Change colour of incorrect Xs back to grey.
+	document.getElementById("incorrect1").style.color="#a9a9a9";
+	document.getElementById("incorrect2").style.color="#a9a9a9";
+	document.getElementById("incorrect3").style.color="#a9a9a9";
 	
 	//Loop to populate questionOrder array
 	while(questionOrder.length < numberOfQuestions){
@@ -131,8 +136,6 @@ function compareAnswer(selectedOption){
 	let correctAnswer = questions[0].answer;
 	let userAnswer = document.getElementById(selectedOption).textContent;
 	
-
-
 	if(userAnswer === correctAnswer){
 		console.log("Clicked the right answer! :D");
 		incrementCorrectCount();
