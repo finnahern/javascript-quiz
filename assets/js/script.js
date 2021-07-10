@@ -174,9 +174,6 @@ function incrementIncorrectCount(incorrectCount){
 
 	switch(currentCount){
 		case 0:
-			document.getElementById("incorrect1").style.color="#a9a9a9";
-			document.getElementById("incorrect2").style.color="#a9a9a9";
-			document.getElementById("incorrect3").style.color="#a9a9a9";
 			break;
 		case 1:
 			document.getElementById("incorrect1").style.color="#cc2121";
@@ -272,133 +269,148 @@ function resetColour(){
 	document.getElementById("option4").style.background="#efefef";
 }
 
-/* --- Array of Quiz questions will look something like this: --- */
-
+/* 
+--- Array of Quiz questions ---
+Questions sourced from W3Schools Javascript quiz: https://www.w3schools.com/quiztest/quiztest.asp?qtest=JS
+*/
 const questions = [
     {
 		//Question 1
-		question: "Text of the first question",
-		answer: "the right answer",
+		question: "Inside which HTML element do we put the JavaScript?",
+		answer: "<script>",
 		options: [
-			"the right answer",
-			"option 2",
-			"option 3",
-			"option 4"
+			"<script>",
+			"<js>",
+			"<javascript>",
+			"<scripting>"
 		]
   	},
     {
     	//Question 2
-		question: "Text of the second question",
-		answer: "the right answer",
+		question: "What is the correct JavaScript syntax to change the content of the following HTML element? <p id='demo'>This is a demonstration.</p>",
+		answer: "document.getElementById('demo').innerHTML = 'Hello World!';",
 		options: [
-			"option 1",
-			"the right answer",
-			"option 3",
-			"option 4"
+			"#demo.innerHTML = 'Hello World!';",
+			"document.getElementByName('p').innerHTML = 'Hello World!';",
+			"document.getElement('p').innerHTML = 'Hello World!';",
+			"document.getElementById('demo').innerHTML = 'Hello World!';"
 		]
   	},
   	{
 		//Question 3
-		question: "Text of the third question",
-		answer: "the right answer",
+		question: "How do you write 'Hello World' in an alert box?",
+		answer: "alert('Hello World');",
 		options: [
-			"option 1",
-			"option 2",
-			"the right answer",
-			"option 4"
+			"msg('Hello World');",
+			"msgBox('Hello World');",
+			"alert('Hello World');",
+			"alertBox('Hello World');"
 		]
  	},
 	{
 		//Question 4
-		question: "Text of the fourth question",
-		answer: "the right answer",
+		question: "How do you write an IF statement in JavaScript?",
+		answer: "if (i == 5) ",
 		options: [
-			"option 1",
-			"option 2",
-			"option 3",
-			"the right answer"
+			"if i = 5",
+			"if (i == 5)",
+			"if i = 5 then",
+			"if i == 5 then"
 		]
 	},
 	{
 		//Question 5
-		question: "Text of the fifth question",
-		answer: "the right answer",
+		question: "How would you write an IF statement for executing some code if 'i' is NOT equal to 5?",
+		answer: "if (i != 5)",
 		options: [
-			"the right answer",
-			"option 2",
-			"option 3",
-			"option 4"
+			"if (i <> 5)",
+			"if i =! 5 then",
+			"if (i != 5)",
+			"if i <> 5"
 		]
 	},
 	{
 		//Question 6
-		question: "Text of the sixth question",
-		answer: "the right answer",
+		question: "How does a FOR loop start?",
+		answer: "for (i = 0; i <= 5; i++)",
 		options: [
-			"option 1",
-			"the right answer",
-			"option 3",
-			"option 4"
+			"for i = 1 to 5",
+			"for (i = 0; i <= 5; i++)",
+			"for (i <= 5; i++)",
+			"for (i <= 5; i++)"
 		]
 	},
 	{
 		//Question 7
-		question: "Text of the seventh question",
-		answer: "the right answer",
+		question: "What is the correct way to write a JavaScript array?",
+		answer: "var colors = ['red', 'green', 'blue']",
 		options: [
-			"option 1",
-			"option 2",
-			"the right answer",
-			"option 4"
+			"var colors = 'red', 'green', 'blue'",
+			"var colors = (1:'red', 2:'green', 3:'blue')",
+			"var colors = ['red', 'green', 'blue']",
+			"var colors = 1 = ('red'), 2 = ('green'), 3 = ('blue')"
 		]
 	},
 	{
 		//Question 8
-		question: "Text of the eighth question",
-		answer: "the right answer",
+		question: "How do you round the number 7.25, to the nearest integer?",
+		answer: "Math.round(7.25)",
 		options: [
-			"option 1",
-			"option 2",
-			"option 3",
-			"the right answer"
+			"Math.round(7.25)",
+			"round(7.25)",
+			"Math.rnd(7.25)",
+			"rnd(7.25)"
 		]
 	},
 	{
 		//Question 9
-		question: "Text of the ninth question",
-		answer: "the right answer",
+		question: "How do you find the number with the highest value of x and y?",
+		answer: "Math.max(x, y)",
 		options: [
-			"the right answer",
-			"option 2",
-			"option 3",
-			"option 4"
+			"top(x, y)",
+			"Math.ceil(x, y)",
+			"ceil(x, y)",
+			"Math.max(x, y)"
 		]
 	},
 	{
 		//Question 10
-		question: "Text of the tenth question",
-		answer: "the right answer",
+		question: "Which event occurs when the user clicks on an HTML element?",
+		answer: "onclick",
 		options: [
-			"option 1",
-			"the right answer",
-			"option 3",
-			"option 4"
+			"onclick",
+			"onchange",
+			"onmouseclick",
+			"onmouseover"
 		]
 	},
 	{
 		//Question 11
-		question: "Text of the eleventh question",
-		answer: "the right answer",
+		question: "How do you declare a JavaScript variable?",
+		answer: "var carName;",
 		options: [
-			"option 1",
-			"option 2",
-			"the right answer",
-			"option 4"
+			"variable carName;",
+			"v carName;",
+			"carName;",
+			"var carName;"
 		]
 	},
 	{
 		//Question 12
-		question: "Text of the twelfth question",
+		question: "Which operator is used to assign a value to a variable?",
+		answer: "=",
+		options: [
+			"*",
+			"=",
+			"+",
+			"x"
+		]
+	},
+]
+
+/* Template to add new questions to the array.
+{
+		question: "Placeholder question text",
 		answer: "the right answer",
 		options: [
 			"option 1",
@@ -407,4 +419,4 @@ const questions = [
 			"the right answer"
 		]
 	},
-]
+*/
