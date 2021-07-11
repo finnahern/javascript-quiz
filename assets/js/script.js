@@ -49,7 +49,10 @@ there are no duplicates. */
 const questionOrder = [];
 const numberOfQuestions = 8;
 
+/*Defines incorrectCount and correctAnswer variables, used in incrementIncorrectCount, pullQuestion and
+compareAnwer functions, so they need to be declared in the global scope.*/
 let incorrectCount = 0;
+let correctAnswer;
 
 /**
  * Initialises the quiz. Sets scores to 0, chooses the questions, displays the quiz box and calls 
@@ -108,7 +111,9 @@ function pullQuestion(){
 
 	//Displays the question and multiple chouce answers for the current question.
 	let currentQuestion = questionOrder.shift();
+	correctAnswer = questions[currentQuestion].answer;
 	console.log(`Current question index: ${currentQuestion}`);
+	console.log(`Correct answer:${correctAnswer}`);
 
 	document.getElementById("question-text").textContent = questions[currentQuestion].question;
 	
@@ -132,9 +137,10 @@ function compareAnswer(selectedOption){
 	//Disables the option buttons
 	disableOptions();
 
-	//Defines correctAnswer and userAnswer and compares them.
-	let correctAnswer = questions[0].answer;
+	//Defines userAnswer and compares it to correctAnswer.
 	let userAnswer = document.getElementById(selectedOption).textContent;
+	console.log(`userAnswer is: ${userAnswer}`);
+	console.log(`correctAnswer is: ${correctAnswer}`);
 	
 	if(userAnswer === correctAnswer){
 		console.log("Clicked the right answer! :D");
