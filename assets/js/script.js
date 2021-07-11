@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function(){
     	})
   	}
 
-	//Loop to add event listeners when an answer is clicked. Needs to call the compareAnswer() function
+	//Loop to add event listeners when an answer is clicked and calls the compareAnswer function.
 	let options = document.getElementsByClassName("option");
 	for(let option of options){
 		option.addEventListener("click", function(){
@@ -49,7 +49,7 @@ there are no duplicates. */
 const questionOrder = [];
 const numberOfQuestions = 8;
 
-/*Defines incorrectCount and correctAnswer variables, used in incrementIncorrectCount, pullQuestion and
+/* Defines incorrectCount and correctAnswer variables, used in incrementIncorrectCount, pullQuestion and
 compareAnwer functions, so they need to be declared in the global scope.*/
 let incorrectCount = 0;
 let correctAnswer;
@@ -66,7 +66,7 @@ function initialiseQuiz(){
 	document.getElementById("number-correct").textContent = "0";
 	incorrectCount = 0;
 
-	//Change colour of incorrect Xs back to grey.
+	//Changes colour of incorrect Xs back to grey.
 	document.getElementById("incorrect1").style.color="#a9a9a9";
 	document.getElementById("incorrect2").style.color="#a9a9a9";
 	document.getElementById("incorrect3").style.color="#a9a9a9";
@@ -93,23 +93,23 @@ function initialiseQuiz(){
 function pullQuestion(){
 	console.log("pullQuestion() called!")
 
-	//Reset the background colour of the option buttons
+	//Resets the background colour of the option buttons
 	resetColour();
 
-	//Disable the Next button and change its colour to grey
+	//Disables the Next button and change its colour to grey
 	document.getElementById("nextbtn").disabled = true;
 	document.getElementById("nextbtn").style.background='#a9a9a9';
 
-	//Enable the option buttons
+	//Enables the option buttons
 	enableOptions();
 	
-	//Increments Question number at the top of the div
+	//Incrementa Question number at the top of the div
 	let questionNumber = parseInt(document.getElementById("question-number").innerText);
 	++questionNumber;
-	document.getElementById("question-number").textContent = questionNumber;
+	document.getElementById("question-number").textContent = questionNumber.toString();
 
 
-	//Displays the question and multiple chouce answers for the current question.
+	//Displays the question and multiple choice answers for the current question.
 	let currentQuestion = questionOrder.shift();
 	correctAnswer = questions[currentQuestion].answer;
 	console.log(`Current question index: ${currentQuestion}`);
@@ -163,7 +163,7 @@ function compareAnswer(selectedOption){
 function incrementCorrectCount(){
 	let oldScore = parseInt(document.getElementById("number-correct").innerText);
 	let newScore = ++oldScore
-	document.getElementById("number-correct").textContent = newScore;
+	document.getElementById("number-correct").textContent = newScore.toString();
 
 	if(newScore >= 5){
 		passQuiz();
@@ -316,7 +316,7 @@ const questions = [
 	{
 		//Question 4
 		question: "How do you write an IF statement in JavaScript?",
-		answer: "if (i == 5) ",
+		answer: "if (i == 5)",
 		options: [
 			"if i = 5",
 			"if (i == 5)",
