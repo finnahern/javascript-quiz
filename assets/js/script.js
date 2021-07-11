@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function(){
 			}else if (this.getAttribute("id") === "restartbtn"){
 				initialiseQuiz();
 			}else if(this.getAttribute("id") === "quitbtn"){
-				abortQuiz();
+				location.reload();
 			}else {
 				alert("Unrecognised button clicked!");
 				throw "Unrecognised button clicked!, Aborting!";
@@ -49,8 +49,8 @@ there are no duplicates. */
 const questionOrder = [];
 const numberOfQuestions = 8;
 
-/* Defines incorrectCount and correctAnswer variables, used in incrementIncorrectCount, pullQuestion and
-compareAnwer functions, so they need to be declared in the global scope.*/
+/* Defines incorrectCount, correctAnswer and questionNumer variables, used in incrementIncorrectCount, 
+pullQuestion and compareAnwer functions, so they need to be declared in the global scope.*/
 let incorrectCount = 0;
 let correctAnswer;
 
@@ -65,6 +65,7 @@ function initialiseQuiz(){
 	//Resets score counts to 0
 	document.getElementById("number-correct").textContent = "0";
 	incorrectCount = 0;
+	document.getElementById("question-number").innerText = "0";
 
 	//Changes colour of incorrect Xs back to grey.
 	document.getElementById("incorrect1").style.color="#a9a9a9";
@@ -103,11 +104,10 @@ function pullQuestion(){
 	//Enables the option buttons
 	enableOptions();
 	
-	//Incrementa Question number at the top of the div
+	//Increments Question number at the top of the div
 	let questionNumber = parseInt(document.getElementById("question-number").innerText);
 	++questionNumber;
 	document.getElementById("question-number").textContent = questionNumber.toString();
-
 
 	//Displays the question and multiple choice answers for the current question.
 	let currentQuestion = questionOrder.shift();
@@ -148,7 +148,7 @@ function compareAnswer(selectedOption){
 
 		document.getElementById(selectedOption).style.background="#1dcc4b";
 	} else{
-		console.log("Fucked it mate");
+		console.log("Clicked the wrong answer! :(");
 		incorrectCount = incrementIncorrectCount(incorrectCount);
 		console.log(incorrectCount);
 
@@ -158,7 +158,7 @@ function compareAnswer(selectedOption){
 
 /**
  * Increments the number-correct counter by 1. Called when the user correctly answers a question.
- * If the number of correct answers hits 5, calls the passQuiz() function.
+ * If the number of correct answers hits 5, calls the passQuiz function.
  */
 function incrementCorrectCount(){
 	let oldScore = parseInt(document.getElementById("number-correct").innerText);
@@ -209,7 +209,7 @@ function incrementIncorrectCount(incorrectCount){
 
 /**
  * Displays results box congratulating the user on passing the quiz and has two buttons 
- * to restart(initialiseQuiz) or quit(abortQuiz).
+ * to restart(initialiseQuiz) or quit.
  */
 function passQuiz(){
 	console.log("Quiz passed!");
@@ -221,7 +221,7 @@ function passQuiz(){
 
 /**
  * Displays the results box but edits the content in the DOM to indicate the the user failed
- * the quiz. 2 buttons prompt the user to restart(initialiseQuiz) or quit(abortQuiz).
+ * the quiz. 2 buttons prompt the user to restart(initialiseQuiz) or quit.
  */
 function failQuiz(){
 	console.log("Quiz failed!");
@@ -233,16 +233,6 @@ function failQuiz(){
 	document.getElementById("start-box").style.display = "none";
 	document.getElementById("quiz-box").style.display = "none";
 	document.getElementById("result-box").style.display = "block";
-}
-
-/**
- * Cancels the quiz and returns to the start-box screen.
- */
-function abortQuiz(){
-	console.log("Quit button clicked, abortQuiz() called!");
-	document.getElementById("start-box").style.display = "block";
-	document.getElementById("quiz-box").style.display = "none";
-	document.getElementById("result-box").style.display = "none";
 }
 
 /**
