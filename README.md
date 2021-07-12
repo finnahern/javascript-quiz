@@ -43,7 +43,7 @@ The site was developed using the Gitpod IDE and deployed using Github pages. [Th
 
 ## Testing
 
-The was tested throughout development using the Chrome, Firefox and Edge web browsers on a desktop PC running the Windows 10 OS, the Chrome browser for Android on a OnePlus 6 phone, the iOS Safari browser on an iPhone 8 as well as a variety of simulated mobile devices and screen sizes using the Chrome developer tools.
+The site was tested throughout development using the Chrome, Firefox and Edge web browsers on a desktop PC running the Windows 10 OS, the Chrome browser for Android on a OnePlus 6 phone, the iOS Safari browser on an iPhone 8 as well as a variety of simulated mobile devices and screen sizes using the Chrome developer tools.
 
 ### Bugs identified and fixed:
 - The compareAnswer function was being called multiple times when the user clicked on an answer button. This was caused by the loop to add event listeners to the mutiple choice answers was in the pullQuestion function meaning that a new set of event listeners were added to the buttons every time the pullQuestion function was called. This was a simple fix to move the loop outside the pullQuestion function to the global scope.
