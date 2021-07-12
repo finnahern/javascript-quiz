@@ -215,8 +215,8 @@ function passQuiz(){
 	console.log("Quiz passed!");
 
 	document.getElementById("icon").innerHTML = "<i class='fas fa-crown'></i>";
-	document.getElementById("completed-text").innerText = "You failed the quiz, better luck next time!";
-	document.getElementById("restartbtn").innerText = "Try Again";
+	document.getElementById("completed-text").innerText = "Congratulations, you've completed the Quiz!";
+	document.getElementById("restartbtn").innerText = "Restart Quiz";
 
 	document.getElementById("start-box").style.display = "none";
 	document.getElementById("quiz-box").style.display = "none";
@@ -231,8 +231,8 @@ function failQuiz(){
 	console.log("Quiz failed!");
 
 	document.getElementById("icon").innerHTML = "<i class='fas fa-times'></i>";
-	document.getElementById("completed-text").innerText = "Congratulations, you've completed the Quiz!";
-	document.getElementById("restartbtn").innerText = "Restart Quiz";
+	document.getElementById("completed-text").innerText = "You failed the quiz, better luck next time!";
+	document.getElementById("restartbtn").innerText = "Try Again";
 	
 	document.getElementById("start-box").style.display = "none";
 	document.getElementById("quiz-box").style.display = "none";
