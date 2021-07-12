@@ -95,3 +95,5 @@ David Malone for his support and encouragement.
 ### Text credits
 
 - Quiz questions sourced from the [W3Schools JavaScript quiz](https://www.w3schools.com/quiztest/quiztest.asp?qtest=JS)
+
+No external code was used in this project.
