@@ -49,7 +49,7 @@ there are no duplicates. */
 const questionOrder = [];
 const numberOfQuestions = 8;
 
-/* Defines incorrectCount, correctAnswer and questionNumer variables, used in incrementIncorrectCount, 
+/* Defines incorrectCount and correctAnswer variables used in incrementIncorrectCount, 
 pullQuestion and compareAnwer functions, so they need to be declared in the global scope.*/
 let incorrectCount = 0;
 let correctAnswer;
