@@ -58,7 +58,7 @@ The site was tested throughout development using the Chrome, Firefox and Edge we
 - #### CSS
 	- No errors were found when passing through the [Jigsaw validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Ffinnahern.github.io%2Fjavascript-quiz%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 - #### JavaScript
-	- No errors were found when passing through the official [Jshint validator](https://jshint.com/)
+	- No errors were found when passing through the [Jshint validator](https://jshint.com/)
 		- The following metrics were returned:
 		- There are 13 functions in this file.
 		- The function with the largest signature take 1 arguments, while the median is 0.
@@ -66,7 +66,7 @@ The site was tested throughout development using the Chrome, Firefox and Edge we
 		- The most complex function has a cyclomatic complexity value of 6 while the median is 2.
 
 ### Improvements to make
-To my knowledge there are no outstanding bugs or errors in the code, however there are always improvements or optimisations that can be made. Right now the enableOptions, disableOptions and resetColour functions and the switch statement the change the colour of the Xs in the top right are clunky and inelegant. Some sort of loop to apply attributes/style rules to each option would be neater and more efficient. Right now each of these functions consist of 4 nearly identical lines of code which are functional but can be improved.
+To my knowledge there are no outstanding bugs or errors in the code, however there are always improvements or optimisations that can be made. Right now the enableOptions, disableOptions and resetColour functions as well as the switch statement the change the colour of the Xs in the top right are clunky and inelegant. Some sort of loop to apply attributes/style rules to each option would be neater and more efficient. Right now these functions consist of 4 nearly identical lines of code which are functional but can be improved.
 
 ## Credits
 
