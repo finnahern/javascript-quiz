@@ -39,14 +39,14 @@ A quiz about basic concepts and functions in Javascript to test the user's new k
 
 ## Deployment
 
-The site was developed using the Gitpod IDE and deployed using Github pages. [The Gitpod Chrome plugin](https://chrome.google.com/webstore/detail/gitpod-dev-environments-i/dodmmooeoklaejobgleioelladacbeki) was also used for easy access to the repository and the development enviornment.
+The site was developed using the Gitpod IDE and deployed using Github pages via the repository settings on Github. [The Gitpod Chrome plugin](https://chrome.google.com/webstore/detail/gitpod-dev-environments-i/dodmmooeoklaejobgleioelladacbeki) was also used for easy access to the repository and the development enviornment. Git's commands were used for version control throughout the project. Regular commits ensured that errors could be rolled back without significant loss of work.
 
 ## Testing
 
 The site was tested throughout development using the Chrome, Firefox and Edge web browsers on a desktop PC running the Windows 10 OS, the Chrome browser for Android on a OnePlus 6 phone, the iOS Safari browser on an iPhone 8 as well as a variety of simulated mobile devices and screen sizes using the Chrome developer tools.
 
 ### Bugs identified and fixed:
-- The compareAnswer function was being called multiple times when the user clicked on an answer button. This was caused by the loop to add event listeners to the mutiple choice answers was in the pullQuestion function meaning that a new set of event listeners were added to the buttons every time the pullQuestion function was called. This was a simple fix to move the loop outside the pullQuestion function to the global scope.
+- The compareAnswer function was being called multiple times when the user clicked on an answer button. This was caused by the loop to add event listeners to the mutiple choice answers being in the pullQuestion function meaning that a new set of event listeners were added to the buttons every time the pullQuestion function was called. This was a simple fix to move the loop outside the pullQuestion function to the global scope.
 - The incorrectCount variable was not resetting properly meaning that after the first failed attempt incorrectCount would always be greater than or equal to 3 so any wrong answers would fail the quiz. I solved this by declaring the variable in the global scope and passing it as an argument to the incrementIncorrectCount function.
 - There was a typo in the answer to question 5 in the array on line 324 meaning it didn't match any of the options in the compareAnswers function and would always be read as incorrect by the compareAnswer function even if the user selected the right answer.
 - The question-number span at the top of the quiz-box div wasn't resetting properly when the user restarted the quiz. I edited the statement on line 68 in intialiseQuiz to reset the number. I also removed the abortQuiz function which was to be called when the user clicked the Quit button and instead used location.reload() to completely reset the page.
