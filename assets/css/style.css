@@ -99,6 +99,37 @@ footer{
     margin: 0 28% 0 28%;
 }
 
-#restart, #quit{
-    margin : 1rem 0.5rem 0 0.5rem;
+#restartbtn, #quitbtn{
+    margin : 1rem 0.5rem 0.2rem 0.5rem;
+}
+
+/* --- Media queries --- */
+@media screen and (max-width: 800px){
+
+	.box{
+		height: 80vh;
+		max-height: 80%;
+	}
+
+	#startbtn{
+		margin-top: 75%;
+	}
+
+	.question-text{
+		font-size: 1.8rem;
+	}
+
+	.option-list{
+		top: 45%;
+	}
+
+	.option{
+		height: 4rem;
+		width: 90%;
+		font-size: 1.3rem;
+	}
+
+	#result-text{
+		font-size: 1.5rem;
+	}
 }
